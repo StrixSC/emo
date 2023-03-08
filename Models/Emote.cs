@@ -9,13 +9,13 @@ namespace Emo.Models
     public class Emote
     {
         public String id { get; set; }
-        public String name { get; set; }
+        public String code { get; set; }
         public String url { get; set; }
-        public ImageType imageType { get; set; }
+        public String imageType { get; set; }
         public bool animated { get; set; }
     }
 
-    internal enum ImageType {
+    public enum ImageType {
         gif,
         png,
         jpg,
