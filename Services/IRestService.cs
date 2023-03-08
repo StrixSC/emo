@@ -9,6 +9,6 @@ namespace Emo.Services
 {
     internal interface IRestService
     {
-        Task<List<Emote>> FetchAllEmotesAsync();
+        public Task<List<Emote>> FetchAllEmotesAsync();
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Emo.Models
 {
-    internal class Emote
+    public class Emote
     {
         public String id { get; set; }
         public String name { get; set; }
