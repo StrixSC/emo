@@ -1,20 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Emo.EmoteWheelPage">
+             x:Class="Emo.EmoteWheelPage"
+             xmlns:model="clr-namespace:Emo.Models"
+             xmlns:viewmodel="clr-namespace:Emo.ModelView"
+             x:DataType="viewmodel:EmoteViewModel"
+             Title="{Binding Title}"
+             >
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <Grid
+        ColumnDefinitions="*, *"
+        ColumnSpacing="5"
+        RowDefinitions="*, Auto"
+        RowSpacing="0">
+        <CollectionView ItemsSource="{Binding Emotes}" SelectionMode="None" Grid.ColumnSpan="2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Emote">
+                    <HorizontalStackLayout Padding="10">
 
-            <Label
-                Text="Emote Wheel"
-                FontSize="18"
-                HorizontalOptions="Center" />
+                        <Image
+                        Aspect="AspectFill"
+                        HeightRequest="100"
+                        Source="{Binding Url}"
+                        IsAnimationPlaying="{Binding Animated}"
+                        WidthRequest="100" />
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
-        </VerticalStackLayout>
-    </ScrollView>
+        <ActivityIndicator 
+            IsVisible="{Binding IsBusy}"
+            IsRunning="{Binding IsBusy}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2">
+        </ActivityIndicator>
+    </Grid>
+    
 
 </ContentPage>

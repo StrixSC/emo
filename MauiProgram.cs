@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Emo.ModelView;
 using Emo.Services;
 using Microsoft.Extensions.Logging;
 
@@ -20,7 +21,12 @@ public static class MauiProgram
 
 #if DEBUG
 		builder.Logging.AddDebug();
+		builder.Services.AddTransient<MainPage>();
+		builder.Services.AddSingleton<EmoteViewModel>();
+		builder.Services.AddTransient<EmoteWheelPage>();
+		builder.Services.AddSingleton<RestService>();
 #endif
 		return builder.Build();
 	}
 }
+

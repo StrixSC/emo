@@ -32,6 +32,12 @@ namespace Emo.Services
             Hook.RunAsync().Subscribe();
         }
 
+        ~KeyboardHandler()
+        {
+            ShortcutPressedNotifier.Dispose();
+            Hook.Dispose();
+        }
+
         private void HandleKeyPressedEvent(KeyboardHookEventArgs Event)
         {
             if (Event == null)
