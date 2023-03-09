@@ -54,4 +54,16 @@
 		<PackageReference Include="SharpHook.Reactive" Version="4.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Pages\EmoteWheel.xaml.cs">
+	    <DependentUpon>EmoteWheel.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Pages\EmoteWheel.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

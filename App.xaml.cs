@@ -1,4 +1,6 @@
-﻿namespace Emo;
+﻿using Emo.Services;
+
+namespace Emo;
 
 public partial class App : Application
 {
@@ -6,6 +8,8 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+        WindowManager manager = new WindowManager();
+        manager.ListenForKeyboardEvents();
+        MainPage = new AppShell();
 	}
 }
