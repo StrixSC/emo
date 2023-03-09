@@ -4,7 +4,7 @@ using Emo.Models;
 
 namespace Emo.Services
 {
-    public class RestService : IRestService
+    public class RestService
     {
         HttpClient _client;
         JsonSerializerOptions _serializerOptions;
