@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,14 +19,9 @@ namespace Emo.Services
 
         public void ListenForKeyboardEvents() 
         {
-            ShortcutSubscription = Handler.ShortcutPressedNotifier.Subscribe((ShortcutPressed) =>
-            {
-                Debug.WriteLine(ShortcutPressed.ToString());
-                if (ShortcutPressed)
-                {
-                    OpenEmoteWheel();
-                }
-            });
+            ShortcutSubscription = Handler.ShortcutPressedNotifier
+                .Where<bool>((Value) => Value == true)
+                .Subscribe((ShortcutPressed) => OpenEmoteWheel());
         }
 
         ~WindowManager()

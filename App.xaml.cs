@@ -8,8 +8,9 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-        WindowManager manager = new WindowManager();
+		WindowManager manager = new WindowManager();
         manager.ListenForKeyboardEvents();
+
         MainPage = new AppShell();
 	}
 }
